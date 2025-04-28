@@ -1,41 +1,91 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
+      debugShowCheckedModeBanner: false,
+      title: 'Cuahtli App',
       theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blueGrey,
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const LoginPage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
+      backgroundColor: const Color(0xFFF8F8FF), // Un blanco hueso similar
       body: Center(
-        child: Text(
-          'Hello, World!',
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'CUAHTLI',
+              style: TextStyle(
+                fontSize: 48.0,
+                fontWeight: FontWeight.bold,
+                color: Color(0xff0c1446), // Un azul oscuro similar
+              ),
+            ),
+            const SizedBox(height: 8.0),
+            const Text(
+              'TU RELOJERIA DE CONFIANZA',
+              style: TextStyle(
+                fontSize: 16.0,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 24.0),
+            ElevatedButton(
+              onPressed: () {
+                // Acción al iniciar sesión
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor:
+                    const Color(0xff0c1446), // El mismo azul oscuro
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                textStyle: const TextStyle(fontSize: 18),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
+              child: const Text(
+                'INICIAR SESION',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            const SizedBox(height: 16.0),
+            const Text(
+              '¿No tienes una cuenta?',
+              style: TextStyle(color: Colors.black54),
+            ),
+            TextButton(
+              onPressed: () {
+                // Acción al registrarse
+              },
+              child: const Text(
+                'REGISTRARME',
+                style: TextStyle(
+                  color: Color(0xff122182), // Un azul más claro
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
